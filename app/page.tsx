@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 import Projects from "@/components/projectShowcase";
 
 
-
 export default function Home() {
   const container = useRef(null);
 
@@ -35,7 +34,7 @@ export default function Home() {
   return (
     <main className="overflow-hidden">
       <div className="h-[20vh]" />
-      <Projects />
+      <Projects projects={[]} /> 
       <div ref={container}>
         <Slide
           src={Picture1}

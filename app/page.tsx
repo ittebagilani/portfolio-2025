@@ -5,7 +5,7 @@ import Lenis from "lenis";
 import { MotionValue, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
 import Hero from "@/components/hero";
-import { useRevealer } from "@/hooks/useRevealer";
+
 
 
 export default function Home() {
@@ -16,7 +16,6 @@ export default function Home() {
   //   offset: ["start end", "end start"],
   // });
 
-  useRevealer();
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -32,7 +31,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="revealer"></div>
+      
       {/* <div className="h-[100vh]" /> */}
       <Hero />
       {/* <Projects projects={[]} />  */}

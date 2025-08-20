@@ -1,13 +1,9 @@
-'use client';
-
-import { useRevealer } from "@/hooks/useRevealer";
+"use client";
 
 const Exp = () => {
-  useRevealer();
-
   return (
     <>
-      <div className="revealer"></div>
+      
       <div className="studio">
         <div className="col">
           <h2>My Story</h2>

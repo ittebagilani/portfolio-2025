@@ -1,0 +1,85 @@
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .labs-container {
+    width: 100%;
+    max-width: 1200px; /* Optional: set max width */
+  }
+
+.lab {
+
+    display: flex;
+
+    width: 100%;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 50px 100px 50px 100px;
+
+    border-top: 1px solid rgb(201, 201, 201);
+
+    cursor: pointer;
+
+    transition: all 0.2s;
+
+}
+
+.lab:last-of-type{
+
+    border-bottom: 1px solid rgb(201, 201, 201);
+
+}
+
+
+
+.lab:hover{
+
+    opacity: 0.5;
+
+}
+
+
+
+.lab:hover h2{
+
+    transform: translateX(-10px);
+
+}
+
+
+
+.lab:hover p{
+
+    transform: translateX(10px);
+
+}
+
+
+
+.lab h2{
+
+    font-size: 60px;
+
+    margin: 0px;
+
+    font-weight: 400;
+
+    transition: all 0.4s;
+
+}
+
+
+
+.lab p{
+
+    transition: all 0.4s;
+
+    font-weight: 300;
+
+}

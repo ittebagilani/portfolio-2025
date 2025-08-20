@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useTransitionRouter } from "next-view-transitions";
+// import { useTransitionRouter } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 
 import "./menu.css";
@@ -12,15 +12,16 @@ import "./menu.css";
 const menuLinks = [
   { path: "/", label: "home" },
   { path: "/work", label: "work" },
-  { path: "/exp", label: "exp" },
-  { path: "/contact", label: "contact" },
+  { path: "/abt", label: "abt" },
+  { path: "/lab", label: "lab" },
+  { path: "/contact", label: "talk" },
 ];
 
 const Menu = () => {
   const container = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const router = useTransitionRouter();
+  // const router = useTransitionRouter();
   const pathname = usePathname();
 
   const tl = useRef<gsap.core.Timeline | null>(null);
@@ -29,34 +30,34 @@ const Menu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  function triggerPageTransition() {
-    document.documentElement.animate(
-      [
-        {
-          clipPath: "polygon(25% 75%, 75% 75%, 75% 75%, 25% 75%)",
-        },
-        {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-        },
-      ],
-      {
-        duration: 2000,
-        easing: "cubic-bezier(0.9, 0, 0.1, 1)",
-        pseudoElement: "::view-transition-new(root)",
-      }
-    );
-  }
+  // function triggerPageTransition() {
+  //   document.documentElement.animate(
+  //     [
+  //       {
+  //         clipPath: "polygon(25% 75%, 75% 75%, 75% 75%, 25% 75%)",
+  //       },
+  //       {
+  //         clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+  //       },
+  //     ],
+  //     {
+  //       duration: 2000,
+  //       easing: "cubic-bezier(0.9, 0, 0.1, 1)",
+  //       pseudoElement: "::view-transition-new(root)",
+  //     }
+  //   );
+  // }
 
-  const handleNavigation = (path: string) => (e: React.MouseEvent) => {
-    if (path === pathname) {
-      e.preventDefault();
-      return;
-    }
+  // const handleNavigation = (path: string) => (e: React.MouseEvent) => {
+  //   if (path === pathname) {
+  //     e.preventDefault();
+  //     return;
+  //   }
 
-    router.push(path, {
-      onTransitionReady: triggerPageTransition,
-    });
-  };
+  //   router.push(path, {
+  //     onTransitionReady: triggerPageTransition,
+  //   });
+  // };
 
   // Ensure component is mounted before running GSAP animations
   useEffect(() => {
@@ -66,7 +67,7 @@ const Menu = () => {
   useGSAP(
     () => {
       if (!isMounted) return;
-      
+
       gsap.set(".menu-link-item-holder", { y: 75 });
 
       tl.current = gsap
@@ -89,7 +90,7 @@ const Menu = () => {
 
   useEffect(() => {
     if (!isMounted || !tl.current) return;
-    
+
     if (isMenuOpen) {
       tl.current.play();
     } else {
@@ -115,7 +116,7 @@ const Menu = () => {
             {menuLinks.map((link, index) => (
               <div className="menu-link-item" key={index}>
                 <div className="menu-link-item-holder" onClick={toggleMenu}>
-                  <Link href={link.path} className="menu-link" onClick={handleNavigation(link.path)}>
+                  <Link href={link.path} className="menu-link mb-4">
                     {link.label}
                   </Link>
                 </div>
@@ -124,15 +125,35 @@ const Menu = () => {
           </div>
           <div className="menu-info">
             <div className="menu-info-col">
-              <a href="#">X &#8599;</a>
-              <a href="#">Instagram &#8599;</a>
-              <a href="#">LinkedIn &#8599;</a>
-              <a href="#">Github &#8599;</a>
+              <Link
+                href="https://x.com/iittebagilanii"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                X
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/itteba-gilani/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href="https://github.com/ittebagilani"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </Link>
+              <Link href="https://itteba.substack.com/" rel="noopener noreferrer" target="_blank">
+                Blog
+              </Link>
             </div>
-            <div className="menu-info-col">
+            {/* <div className="menu-info-col">
               <p>itteba1@gmail.com</p>
               <p>6476774937</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -70,12 +70,15 @@
   transform: translateX(-50%);
   display: flex;
   gap: 4em;
+  text-transform: lowercase;
+  font-size: 22px;
 }
 
 .menu-info-col {
   display: flex;
-  flex-direction: column;
-  gap: 0.5em;
+  flex-direction: row;
+  gap: 2.5em;
+  
 }
 
 .menu-info-col a,
@@ -117,6 +120,7 @@
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 85%;
+  
 }
 
 /* Tablet */

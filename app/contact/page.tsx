@@ -1,10 +1,16 @@
 "use client";
+import dynamic from "next/dynamic"
+
+
+// const Scene = dynamic(() => import('@/components/Scene'), {
+//   ssr: false
+// })
 
 const Contact = () => {
   return (
     <>
       
-      <div className="contact">
+      {/* <div className="contact">
         <div className="col">
           <h2>Contact</h2>
         </div>
@@ -20,7 +26,9 @@ const Contact = () => {
             <p>LinkedIn</p>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      {/* <Scene /> */}
     </>
   );
 };

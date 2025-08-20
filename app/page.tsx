@@ -1,23 +1,22 @@
 "use client";
-import Footer from "@/components/footer";
-import Picture1 from "../public/images/pic1.jpg";
-import Picture2 from "../public/images/pic2.jpg";
-import Picture3 from "../public/images/pic3.jpg";
 import { StaticImageData } from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Lenis from "lenis";
-import { MotionValue, useScroll, useTransform } from "framer-motion";
+import { MotionValue, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
-import Projects from "@/components/projectShowcase";
+import Hero from "@/components/hero";
+import { useRevealer } from "@/hooks/useRevealer";
 
 
 export default function Home() {
-  const container = useRef(null);
+  // const container = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: container,
+  //   offset: ["start end", "end start"],
+  // });
+
+  useRevealer();
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -32,10 +31,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="overflow-hidden">
-      <div className="h-[20vh]" />
-      <Projects projects={[]} /> 
-      <div ref={container}>
+    <>
+      <div className="revealer"></div>
+      {/* <div className="h-[100vh]" /> */}
+      <Hero />
+      {/* <Projects projects={[]} />  */}
+      {/* <div ref={container}>
         <Slide
           src={Picture1}
           left={"-40%"}
@@ -54,9 +55,8 @@ export default function Home() {
           direction={"left"}
           progress={scrollYProgress}
         />
-      </div>
-      <Footer />
-    </main>
+      </div> */}
+    </>
   );
 }
 

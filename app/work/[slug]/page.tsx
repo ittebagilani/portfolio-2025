@@ -1,22 +1,23 @@
 import projects from "@/constants/project"
 import ProjectClient from "./project-client"
 
-import { notFound } from 'next/navigation'; // for App Router
-// or import { notFound } from 'next/router'; // for Pages Router
+import { notFound } from 'next/navigation';
+import projects from "@/constants/project";
+import ProjectClient from "./project-client";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = params;
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params; // Await the params Promise
+  
   const project = projects.find((p) => p.slug === slug);
   
-  // Handle case where project is not found
   if (!project) {
-    notFound(); // This will show a 404 page
+    notFound();
   }
 
   const currentIndex = projects.findIndex((p) => p.slug === slug);
@@ -28,7 +29,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <ProjectClient 
-      project={project} // TypeScript now knows this is not undefined
+      project={project}
       nextProject={nextProject}
       prevProject={prevProject}
     />

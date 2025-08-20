@@ -244,7 +244,7 @@ export default function ProjectClient({
   }, [project.slug]);
 
   return (
-    <div className="project-page">
+    <div className="project-page overflow-x-hidden">
       <div className="project-nav" ref={projectNavRef}>
         <div className="link">
           <span>&#8592;&nbsp;</span>

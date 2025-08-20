@@ -1,6 +1,3 @@
-import projects from "@/constants/project"
-import ProjectClient from "./project-client"
-
 import { notFound } from 'next/navigation';
 import projects from "@/constants/project";
 import ProjectClient from "./project-client";

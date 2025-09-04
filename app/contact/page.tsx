@@ -1,34 +1,20 @@
 "use client";
-import dynamic from "next/dynamic"
+// import Scene from "@/components/contact/scene";
+import dynamic from "next/dynamic";
 
-
-// const Scene = dynamic(() => import('@/components/Scene'), {
-//   ssr: false
-// })
+const Scene = dynamic(() => import("@/components/contact/scene"), {
+  ssr: false,
+});
 
 const Contact = () => {
   return (
     <>
-      
-      {/* <div className="contact">
-        <div className="col">
-          <h2>Contact</h2>
+      <div className="h-[100vh] flex">
+        <Scene />
+        <div className="flex mx-auto text-center align-middle justify-center h-fit  mt-20">
+          <h1 className="font-semibold text-8xl uppercase">call me</h1>
         </div>
-        <div className="col">
-          <div className="contact-copy">
-            <h2>Collaborations</h2>
-            <h2>itteba1@gmail.com</h2>
-          </div>
-
-          <div className="socials">
-            <p>Instagram</p>
-            <p>Twitter/X</p>
-            <p>LinkedIn</p>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <Scene /> */}
+      </div>
     </>
   );
 };

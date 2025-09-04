@@ -9,12 +9,12 @@ import { usePathname } from "next/navigation";
 
 import "./menu.css";
 
+// Remove home from menu links since it's now in the top left
 const menuLinks = [
-  { path: "/", label: "home" },
-  { path: "/work", label: "work" },
-  { path: "/abt", label: "abt" },
-  { path: "/lab", label: "lab" },
-  { path: "/contact", label: "talk" },
+  { path: "/", label: "HOME" },
+  { path: "/work", label: "WORK" },
+  { path: "/lab", label: "LAB" },
+  { path: "/contact", label: "TALK" },
 ];
 
 const Menu = () => {
@@ -29,35 +29,6 @@ const Menu = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  // function triggerPageTransition() {
-  //   document.documentElement.animate(
-  //     [
-  //       {
-  //         clipPath: "polygon(25% 75%, 75% 75%, 75% 75%, 25% 75%)",
-  //       },
-  //       {
-  //         clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-  //       },
-  //     ],
-  //     {
-  //       duration: 2000,
-  //       easing: "cubic-bezier(0.9, 0, 0.1, 1)",
-  //       pseudoElement: "::view-transition-new(root)",
-  //     }
-  //   );
-  // }
-
-  // const handleNavigation = (path: string) => (e: React.MouseEvent) => {
-  //   if (path === pathname) {
-  //     e.preventDefault();
-  //     return;
-  //   }
-
-  //   router.push(path, {
-  //     onTransitionReady: triggerPageTransition,
-  //   });
-  // };
 
   // Ensure component is mounted before running GSAP animations
   useEffect(() => {
@@ -101,14 +72,20 @@ const Menu = () => {
   return (
     <div className="menu-container" ref={container}>
       <div className="menu-bar">
+        {/* <div className="menu-home">
+          <Link href="/">
+            <p>HOME</p>
+          </Link>
+        </div> */}
+        
         <div className="menu-open" onClick={toggleMenu}>
-          <p>Menu</p>
+          <p>MENU</p>
         </div>
       </div>
       <div className="menu-overlay">
         <div className="menu-overlay-bar">
           <div className="menu-close" onClick={toggleMenu}>
-            <p>Close</p>
+            <p>CLOSE</p>
           </div>
         </div>
         <div className="menu-copy">
@@ -124,7 +101,7 @@ const Menu = () => {
             ))}
           </div>
           <div className="menu-info">
-            <div className="menu-info-col">
+            <div className="menu-info-col uppercase text-[15px] font-medium">
               <Link
                 href="https://x.com/iittebagilanii"
                 target="_blank"
@@ -150,10 +127,6 @@ const Menu = () => {
                 Blog
               </Link>
             </div>
-            {/* <div className="menu-info-col">
-              <p>itteba1@gmail.com</p>
-              <p>6476774937</p>
-            </div> */}
           </div>
         </div>
       </div>

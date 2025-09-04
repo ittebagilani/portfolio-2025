@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { ViewTransitions } from "next-view-transitions";
-import Menu from "@/components/menu";
+import Menu from "@/components/menu/menu";
+import { Inter, Oranienbaum } from "next/font/google"
 
 const inter = Inter({
-  subsets: ["latin"],
-});
+  weight: ["100", "200", "300", "400", "500"]
+})
+
+
+const oranienbaum = Oranienbaum({
+  weight: "400"
+})
 
 export const metadata: Metadata = {
   title: "Itteba Gilani",
@@ -19,13 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en">
-        <body className={`${inter.className} antialiased`}>
-          <Menu />
-          {children}
-        </body>
-      </html>
-    </ViewTransitions>
+    <html lang="en">
+      <body className={`${oranienbaum.className} antialiased bg-[#e5e6e0] overflow-hidden`}>
+        <Menu />
+        {children}
+      </body>
+    </html>
   );
 }

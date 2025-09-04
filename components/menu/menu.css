@@ -1,4 +1,15 @@
-.menu-bar,
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 2em;
+  display: flex;
+  justify-content: end; /* HOME left, MENU right */
+  align-items: center;
+  z-index: 1;
+}
+
 .menu-overlay-bar {
   position: fixed;
   top: 0;
@@ -6,11 +17,11 @@
   width: 100vw;
   padding: 2em;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Keep CLOSE on the right */
   align-items: center;
   z-index: 1;
+  background: transparent;
 }
-
 .menu-bar a,
 .menu-bar p {
   color: #000;
@@ -121,6 +132,18 @@
   letter-spacing: -0.02em;
   line-height: 85%;
   
+}
+
+.menu-home a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.menu-home p {
+  margin: 0;
+  color: #000;
+  cursor: pointer;
 }
 
 /* Tablet */

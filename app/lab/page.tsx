@@ -1,6 +1,7 @@
 'use client';
 
-import Lab from "@/components/lab";
+import Lab from "@/components/lab/lab";
+import Modal from "@/components/modal/modal";
 import { useState } from "react";
 
 const labs = [
@@ -58,7 +59,7 @@ const labs = [
                   })
               }
           </div>
-          {/* <Modal modal={modal} labs={labs} /> */}
+          <Modal modal={modal} projects={labs} />
       </main>
     );
   };

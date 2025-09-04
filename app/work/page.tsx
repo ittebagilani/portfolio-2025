@@ -1,17 +1,9 @@
-import Link from "next/link";
-import projects from "@/constants/project"
+import Work from "@/components/work/work";
 
-export default function Projects() {
-    return (
-        <ul className="projects-list">
-            {projects.map((project) => (
-                <li key={project.id}>
-                    <div className="link">
-                        
-                        <Link href={`/work/${project.slug}`}>{project.title}</Link>
-                    </div>
-                </li>
-            ))}
-        </ul>
-    )
+const Page = () => {
+    return ( 
+        <Work />
+     );
 }
+ 
+export default Page;

@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { MotionValue, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
-import Hero from "@/components/hero";
+import Hero from "@/components/hero/hero";
+import Footer from "@/components/footer";
 
 
 
@@ -31,9 +32,9 @@ export default function Home() {
 
   return (
     <>
-      
-      {/* <div className="h-[100vh]" /> */}
+
       <Hero />
+      <Footer />
       {/* <Projects projects={[]} />  */}
       {/* <div ref={container}>
         <Slide
@@ -53,8 +54,7 @@ export default function Home() {
           left={"-75%"}
           direction={"left"}
           progress={scrollYProgress}
-        />
-      </div> */}
+        />*/}
     </>
   );
 }

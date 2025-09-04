@@ -1,0 +1,12 @@
+.main {
+  margin-top: 10vh;
+  color: black;
+  padding-bottom: 10vh;
+}
+
+.main h1 {
+  padding: 20px;
+  font-size: 5vw;
+  max-width: 80%;
+  font-weight: 400;
+}

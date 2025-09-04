@@ -3,13 +3,10 @@ import "./globals.css";
 import Menu from "@/components/menu/menu";
 import { Inter, Oranienbaum } from "next/font/google"
 
-const inter = Inter({
-  weight: ["100", "200", "300", "400", "500"]
-})
-
 
 const oranienbaum = Oranienbaum({
-  weight: "400"
+  weight: "400",
+  subsets: ["latin"]
 })
 
 export const metadata: Metadata = {

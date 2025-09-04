@@ -1,11 +1,7 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import styles from "./hero.module.css";
-import { Oranienbaum } from "next/font/google";
 
-const oranienbaum = Oranienbaum({
-  weight: "400"
-})
 
 
 const Hero = () => {
@@ -81,7 +77,7 @@ const Hero = () => {
     <motion.div
       ref={container}
       style={{ opacity }}
-      className={`min-h-[100svh] flex flex-col items-center justify-center text-center px-4 py-8 sm:py-12 md:py-16 ${styles.container} ${oranienbaum.className}`}
+      className={`min-h-[100svh] flex flex-col items-center justify-center text-center px-4 py-8 sm:py-12 md:py-16 ${styles.container}`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"

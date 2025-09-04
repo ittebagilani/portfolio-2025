@@ -1,10 +1,5 @@
 import Image from "next/image";
-import { Oranienbaum } from "next/font/google";
 import { motion } from "framer-motion";
-
-const oranienbaum = Oranienbaum({
-  weight: "400",
-});
 
 export default function Footer() {
   return (
@@ -22,7 +17,7 @@ export default function Footer() {
       </div>
       <div className="min-h-screen w-1/2">
         <div
-          className={`uppercase text-black font-light text-4xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center h-full px-20 text-center ${oranienbaum.className}`}
+          className={`uppercase text-black font-light text-4xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center h-full px-20 text-center`}
         >
           {/* Creative Fullstack */}
           <motion.div className="mb-4 sm:mb-6 md:mb-8">

@@ -10,13 +10,13 @@ const scaleAnimation = {
     scale: 1,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.4, ease: "easeInOut" as const },
   },
   closed: {
     scale: 0,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
+    transition: { duration: 0.4, ease: "easeInOut" as const },
   },
 };
 
@@ -38,9 +38,9 @@ interface ModalProps {
 export default function Modal({ modal, projects }: ModalProps) {
   const { active, index } = modal;
 
-  const modalContainer = useRef(null);
-  const cursor = useRef(null);
-  const cursorLabel = useRef(null);
+  const modalContainer = useRef<HTMLDivElement>(null);
+  const cursor = useRef<HTMLDivElement>(null);
+  const cursorLabel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // move container
@@ -73,7 +73,7 @@ export default function Modal({ modal, projects }: ModalProps) {
       ease: "power3",
     });
 
-    window.addEventListener("mousemove", (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const { pageX, pageY } = e;
 
       xMoveContainer(pageX);
@@ -82,7 +82,13 @@ export default function Modal({ modal, projects }: ModalProps) {
       yMoveCursor(pageY);
       xMoveCursorLabel(pageX);
       yMoveCursorLabel(pageY);
-    });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (

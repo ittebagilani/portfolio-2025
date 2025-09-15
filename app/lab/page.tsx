@@ -12,7 +12,8 @@ const labs = [
   
       src: "pic1.jpg",
   
-      color: "#000000"
+      color: "#000000",
+      description: "Design & Dev"
   
     },
   
@@ -22,7 +23,8 @@ const labs = [
   
       src: "pic2.jpg",
   
-      color: "#8C8C8C"
+      color: "#8C8C8C",
+      description: "Design & Dev"
   
     },
   
@@ -32,7 +34,8 @@ const labs = [
   
       src: "pic3.jpg",
   
-      color: "#EFE8D3"
+      color: "#EFE8D3",
+      description: "Design & Dev"
   
     },
   
@@ -42,7 +45,8 @@ const labs = [
   
       src: "pic1.jpg",
   
-      color: "#706D63"
+      color: "#706D63",
+      description: "Design & Dev"
   
     },
     {
@@ -51,7 +55,8 @@ const labs = [
   
       src: "pic1.jpg",
   
-      color: "#000000"
+      color: "#000000",
+      description: "Design & Dev"
   
     },
   
@@ -61,7 +66,8 @@ const labs = [
   
       src: "pic2.jpg",
   
-      color: "#8C8C8C"
+      color: "#8C8C8C",
+      description: "Design & Dev"
   
     },
   
@@ -71,7 +77,8 @@ const labs = [
   
       src: "pic3.jpg",
   
-      color: "#EFE8D3"
+      color: "#EFE8D3",
+      description: "Design & Dev"
   
     },
   
@@ -81,7 +88,8 @@ const labs = [
   
       src: "pic1.jpg",
   
-      color: "#706D63"
+      color: "#706D63",
+      description: "Design & Dev"
   
     }
   
@@ -94,7 +102,7 @@ const labs = [
           <div className="labs-container">
               {
                   labs.map((lab, index) => {
-                      return <Lab index={index} title={lab.title} setModal={setModal} key={index} />
+                      return <Lab index={index} title={lab.title} setModal={setModal} key={index} description={lab.description}/>
                   })
               }
           </div>

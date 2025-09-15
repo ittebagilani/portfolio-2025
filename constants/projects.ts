@@ -1,0 +1,58 @@
+export const projects = [
+    {
+        name: "MAVEN 11",
+        client: "analogueagency",
+        description: "New web design for the blockchain investment fund Maven 11.",
+        src: "pic1.jpg",
+        year: 2022,
+    },
+    {
+        name: "Wix Playground Homepage",
+        client: "Wix Playground",
+        description: "Wix Playground is powered by the Wix.com design team.",
+        src: "pic2.jpg",
+        year: 2022,
+    },
+    {
+        name: "POWELL—STUDIO",
+        client: "POWELL—STUDIO",
+        description: "The online presence for Powell—Studio.",
+        src: "pic3.jpg",
+        year: 2023,
+    },
+    {
+        name: "MAVEN 11",
+        client: "analogueagency",
+        description: "New web design for the blockchain investment fund Maven 11.",
+        src: "pic1.jpg",
+        year: 2022,
+    },
+    {
+        name: "Wix Playground Homepage",
+        client: "Wix Playground",
+        description: "Wix Playground is powered by the Wix.com design team.",
+        src: "pic2.jpg",
+        year: 2022,
+    },
+    {
+        name: "POWELL—STUDIO",
+        client: "POWELL—STUDIO",
+        description: "The online presence for Powell—Studio.",
+        src: "pic3.jpg",
+        year: 2023,
+    },
+    {
+        name: "POWELL—STUDIO",
+        client: "POWELL—STUDIO",
+        description: "The online presence for Powell—Studio.",
+        src: "pic3.jpg",
+        year: 2023,
+    },
+    {
+        name: "Another Project",
+        client: "Client Name",
+        description: "Project description here.",
+        src: "pic2.jpg",
+        year: 2024,
+    },
+]

@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Menu from "@/components/menu/menu";
-import { Inter, Oranienbaum } from "next/font/google"
+import localFont from "next/font/local";
+import Navbar from "@/components/navbar/navbar";
 
+const neueMontreal = localFont({
+  src: [
+    {
+      path: "./../public/fonts/NeueMontreal-Regular.otf", // <-- notice the leading /
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-neue-montreal",
+});
 
-const oranienbaum = Oranienbaum({
-  weight: "400",
-  subsets: ["latin"]
-})
 
 export const metadata: Metadata = {
   title: "Itteba Gilani",
@@ -21,8 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${oranienbaum.className} antialiased bg-[#e5e6e0] overflow-hidden`}>
-        <Menu />
+      <body className={`${neueMontreal.className} antialiased bg-[#e5e6e0] mx-auto max-w-7xl`}>
+        {/* <Menu /> */}
+        <Navbar />
         {children}
       </body>
     </html>

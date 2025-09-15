@@ -12,7 +12,7 @@ import "./menu.css";
 // Remove home from menu links since it's now in the top left
 const menuLinks = [
   { path: "/", label: "HOME" },
-  { path: "/work", label: "WORK" },
+  // { path: "/work", label: "WORK" },
   { path: "/lab", label: "LAB" },
   { path: "/contact", label: "TALK" },
 ];
@@ -101,7 +101,7 @@ const Menu = () => {
             ))}
           </div>
           <div className="menu-info">
-            <div className="menu-info-col uppercase text-[15px] font-medium">
+            <div className="menu-info-col text-[15px] font-medium">
               <Link
                 href="https://x.com/iittebagilanii"
                 target="_blank"

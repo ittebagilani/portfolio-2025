@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
-
 :root {
-  --background: #E6E6E1;
+  --background: #e6e6e1;
   --foreground: #171717;
   margin: 0;
   padding: 0;
@@ -156,25 +155,27 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 4em;
-
 }
 
 .work .projects img {
   aspect-ratio: 4/5;
 }
 
-.studio, .contact {
+.studio,
+.contact {
   padding: 15em 1em;
   display: flex;
   gap: 1em;
   background-color: var(--background);
 }
 
-.studio .col:nth-child(1), .contact .col:nth-child(1) {
+.studio .col:nth-child(1),
+.contact .col:nth-child(1) {
   flex: 1;
 }
 
-.studio .col:nth-child(2), .contact .col:nth-child(2) {
+.studio .col:nth-child(2),
+.contact .col:nth-child(2) {
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -224,7 +225,7 @@ h1 {
 }
 
 ::view-transition-group(root) {
-  z-index: auto !important
+  z-index: auto !important;
 }
 
 ::view-transition-image-pair(root) {
@@ -316,14 +317,6 @@ h1 {
   align-items: center;
 }
 
-#project-description {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
 .project-footer-copy {
   position: absolute;
   top: 35%;
@@ -377,26 +370,26 @@ h1 {
 }
 
 .next-project-progress-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    transform: scaleX(0%);
-    will-change: transform;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: scaleX(0%);
+  will-change: transform;
 }
 
 @media (max-width: 900px) {
-    .project-nav {
-        width: 100vw;
-    }
+  .project-nav {
+    width: 100vw;
+  }
 
-    .project-nav .link {
-        display: none;
-    }
+  .project-nav .link {
+    display: none;
+  }
 
-    .project-img {
-        width: 90%;
-    }
+  .project-img {
+    width: 90%;
+  }
 }

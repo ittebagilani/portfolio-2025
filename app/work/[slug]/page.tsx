@@ -2,12 +2,6 @@ import projects from "../../../components/work/projects";
 import ProjectClient from "./project-client";
 
 // Type definitions
-interface ProjectPageProps {
-  params: {
-    slug: string;
-  };
-}
-
 interface Project {
   id: number;
   slug: string;
@@ -16,8 +10,13 @@ interface Project {
   images: string[];
 }
 
-export default function Work({ params }: ProjectPageProps) {
-  const { slug } = params;
+// Define the props for the page, matching Next.js expectations
+interface ProjectPageProps {
+  params: { slug: string }; // Directly define as an object, not a Promise
+}
+
+export default async function Work({ params }: ProjectPageProps) {
+  const { slug } = params; // No need to await, as params is already resolved
   const project = projects.find((p: Project) => p.slug === slug);
   const currentIndex = projects.findIndex((p: Project) => p.slug === slug);
 

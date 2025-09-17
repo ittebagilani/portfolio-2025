@@ -10,13 +10,13 @@ interface Project {
   images: string[];
 }
 
-// Define the props for the page, matching Next.js expectations
+// Define the props for the page, matching Next.js App Router expectations
 interface ProjectPageProps {
-  params: { slug: string }; // Directly define as an object, not a Promise
+  params: Promise<{ slug: string }>; // params is now a Promise in App Router
 }
 
 export default async function Work({ params }: ProjectPageProps) {
-  const { slug } = params; // No need to await, as params is already resolved
+  const { slug } = await params; // Await the params Promise
   const project = projects.find((p: Project) => p.slug === slug);
   const currentIndex = projects.findIndex((p: Project) => p.slug === slug);
 

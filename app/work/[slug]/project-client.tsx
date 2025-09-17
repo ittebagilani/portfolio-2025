@@ -74,21 +74,19 @@ export default function ProjectClient({
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
+      // direction: "vertical", // Remove - not a valid option
+      // gestureDirection: "vertical", // Remove - not a valid option
+      // smooth: true,
+      // mouseMultiplier: 1,
+      // smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
       // Performance optimizations for first load
       lerp: 0.05, // More responsive on first load
       wheelMultiplier: 1.2, // Slightly faster wheel response
-      // Reduce CPU usage
-      syncTouch: false,
-      syncTouchLerp: 0.1,
-      // Better first-load performance
-      smoothWheel: true,
+      // syncTouch: false, // Remove - not a valid option
+      // syncTouchLerp: 0.1, // Remove - not a valid option
+      // smoothWheel: true, // Remove - not a valid option
     });
 
     // Integrate Lenis with GSAP ScrollTrigger
@@ -277,26 +275,6 @@ export default function ProjectClient({
 
   return (
     <div className="project-page overflow-x-clip">
-      {/* <div className="project-nav" ref={projectNavRef}>
-        <div className="link">
-          <span>&#8592;&nbsp;</span>
-          <Link href={`/work/${prevProject.slug}`}>Previous</Link>
-        </div>
-
-        <div className="project-page-scroll-progress">
-          <div
-            className="project-page-scroll-progress-bar"
-            ref={progressBarRef}
-          ></div>
-          {project.title}
-        </div>
-
-        <div className="link">
-          <span>&#8594;&nbsp;</span>
-          <Link href={`/projects/${nextProject.slug}`}>Next</Link>
-        </div>
-      </div> */}
-
       <div className="flex items-center justify-center mx-auto h-[100vh] w-full relative">
         <h1 className="text-9xl text-center -mt-20">{project.title}</h1>
         <p
@@ -325,7 +303,10 @@ export default function ProjectClient({
           ))}
       </div>
 
-      <div className="items-center justify-center mx-auto h-[100vh] w-full relative inline-flex" ref={footerRef}>
+      <div
+        className="items-center justify-center mx-auto h-[100vh] w-full relative inline-flex"
+        ref={footerRef}
+      >
         <div className="absolute top-[35%] left-[10%]">
           <p>Next Up</p>
         </div>

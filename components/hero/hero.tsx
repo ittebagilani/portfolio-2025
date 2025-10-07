@@ -4,7 +4,7 @@ import styles from "./hero.module.css";
 
 const Hero = () => {
   const container = useRef<HTMLDivElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end start"],
@@ -38,7 +38,7 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut" as const, // Use predefined easing or cast as const
+        ease: "easeOut" as const,
       },
     },
   };
@@ -49,13 +49,13 @@ const Hero = () => {
   useEffect(() => {
     const handleResize = () => {
       setWindowsWidth(window.innerWidth);
-      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Set initial values
-    window.addEventListener('resize', handleResize);
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const getBlocks = () => {
@@ -71,8 +71,7 @@ const Hero = () => {
             }
           }}
           style={{
-            // Only enable pointer events on desktop
-            pointerEvents: isMobile ? 'none' : 'auto'
+            pointerEvents: isMobile ? "none" : "auto",
           }}
         ></div>
       );
@@ -90,16 +89,15 @@ const Hero = () => {
     <motion.div
       ref={container}
       style={{ opacity }}
-      className={`min-h-[100svh] flex flex-col items-center justify-center text-center px-4 py-8 sm:py-12 md:py-16 ${styles.container}`}
+      className={`flex flex-col items-start md:items-center justify-center px-6 sm:px-10 lg:px-20 py-8 sm:py-12 md:py-16 ${styles.container}`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <div 
+      <div
         className={styles.grid}
         style={{
-          // Disable pointer events on the grid container for mobile
-          pointerEvents: isMobile ? 'none' : 'auto'
+          pointerEvents: isMobile ? "none" : "auto",
         }}
       >
         {windowsWidth > 0 &&
@@ -111,25 +109,34 @@ const Hero = () => {
             );
           })}
       </div>
-      <div className={styles.body}>
+      <div className={`${styles.body}`}>
         {/* Main Name */}
-        <motion.div className="mb-6 sm:mb-8 md:mb-12" variants={itemVariants} style={{y: translateY}}>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[180px] leading-[0.8] ">
-            itteba gilani
-          </h1>
-        </motion.div>
-        
-        <motion.div className="absolute -top-20 mb-6 sm:mb-8 md:mb-12" variants={itemVariants} style={{y: translateY}}>
-          <h1 className="text-xl leading-[0.8] ">
-            open to work
+        <motion.div
+          className="mb-6 sm:mb-8 md:mb-12"
+          variants={itemVariants}
+          style={{ y: translateY }}
+        >
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[180px] leading-[0.8] text-left md:text-center">
+            Itteba Gilani
           </h1>
         </motion.div>
 
-        
-        <motion.div className="absolute right-10 top-70 mb-6 sm:mb-8 md:mb-12" variants={itemVariants} style={{y: translateY}}>
-          <h1 className="text-xl leading-[0.8] ">
-            based in toronto
-          </h1>
+        {/* Open to work - left justified on mobile, absolute on larger screens */}
+        <motion.div
+          className="mb-4 md:mb-0 md:absolute md:-top-20"
+          variants={itemVariants}
+          style={{ y: translateY }}
+        >
+          <h1 className="text-xl leading-[0.8] text-left md:text-center">open to work</h1>
+        </motion.div>
+
+        {/* Location - left justified on mobile, absolute on larger screens */}
+        <motion.div
+          className="mb-6 sm:mb-8 md:mb-0 md:absolute md:right-50 md:top-60"
+          variants={itemVariants}
+          style={{ y: translateY }}
+        >
+          <h1 className="text-xl leading-[0.8] text-left md:text-center">toronto, on</h1>
         </motion.div>
       </div>
     </motion.div>

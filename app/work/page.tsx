@@ -8,7 +8,7 @@ export default function Work() {
                 <li key={project.id}>
                     <div className="link">
                         
-                        <Link href={`/work/${project.slug}`}>{project.title}</Link>
+                        <Link href={`/work/${project.slug}`} className="text-6xl">{project.title}</Link>
                     </div>
                 </li>
             ))}

@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    height: 100vh;
+    height: 80vh;
     align-items: center;
     justify-content: center;
     background-color: #e5e6e0;
@@ -10,7 +10,7 @@
     /* font-size: 6vw; */
     text-align: center;
     /* font-weight: 700; */
-    width: 70%;
+    width: 85%;
     position: relative;
     z-index: 1;
     pointer-events: none;

@@ -8,7 +8,7 @@ const labs = [
 
     {
   
-      title: "C2 Montreal",
+      title: "01",
   
       src: "pic1.jpg",
   
@@ -19,7 +19,7 @@ const labs = [
   
     {
   
-      title: "Office Studio",
+      title: "02",
   
       src: "pic2.jpg",
   
@@ -30,7 +30,7 @@ const labs = [
   
     {
   
-      title: "Locomotive",
+      title: "03",
   
       src: "pic3.jpg",
   
@@ -41,7 +41,7 @@ const labs = [
   
     {
   
-      title: "Silencio",
+      title: "04",
   
       src: "pic1.jpg",
   
@@ -51,7 +51,7 @@ const labs = [
     },
     {
   
-      title: "C2 Montreal",
+      title: "05",
   
       src: "pic1.jpg",
   
@@ -62,33 +62,11 @@ const labs = [
   
     {
   
-      title: "Office Studio",
+      title: "06",
   
       src: "pic2.jpg",
   
       color: "#8C8C8C",
-      description: "Design & Dev"
-  
-    },
-  
-    {
-  
-      title: "Locomotive",
-  
-      src: "pic3.jpg",
-  
-      color: "#EFE8D3",
-      description: "Design & Dev"
-  
-    },
-  
-    {
-  
-      title: "Silencio",
-  
-      src: "pic1.jpg",
-  
-      color: "#706D63",
       description: "Design & Dev"
   
     }

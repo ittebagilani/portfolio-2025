@@ -308,7 +308,7 @@ export default function ProjectClient({
         ref={footerRef}
       >
         <div className="absolute top-[35%] left-[10%]">
-          <p>Next Up</p>
+          <p>(next up)</p>
         </div>
         <h1 className="text-9xl">{nextProject.title}</h1>
         <div className="next-project-progress">

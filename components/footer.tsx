@@ -15,7 +15,7 @@ export default function Footer() {
           className="object-cover"
         />
       </div> */}
-      <div className="min-h-[70vh] w-full lg:w-1/2">
+      <div className="min-h-[70vh] w-full lg:w-1/2 mb-40">
         <div
           className={`text-black font-light flex flex-col lg:flex-row lg:justify-center lg:items-center h-full px-20 py-8 sm:py-12 md:py-16`}
         >
@@ -27,9 +27,13 @@ export default function Footer() {
           </motion.div>
 
           <motion.div className="lg:absolute lg:right-20">
-            <p className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight text-left">
+            {/* <p className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight text-left">
               I make websites feel like games.
-            </p>
+
+            </p> */}
+
+            <Image src={'/images/pfp.jpg'} width={500} height={500} alt="pfp" className="rounded-xl shadow-2xl"/>
+
           </motion.div>
         </div>
       </div>

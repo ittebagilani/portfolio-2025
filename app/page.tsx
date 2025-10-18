@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Hero from "@/components/hero/hero";
 import Footer from "@/components/footer";
+import LabPage from "./lab/page";
 
 export default function Home() {
 
@@ -23,6 +24,7 @@ export default function Home() {
       <Hero />
       {/* <HeroNew /> */}
       <Footer />
+      <LabPage />
     </>
   );
 }

@@ -8,7 +8,7 @@ const labs = [
   {
     title: "Tempest AI",
 
-    src: "pic1.jpg",
+    src: "tempest.png",
 
     color: "#000000",
     description: "Fullstack",
@@ -17,16 +17,16 @@ const labs = [
   {
     title: "Layers",
 
-    src: "pic2.jpg",
+    src: "layers.png",
 
     color: "#8C8C8C",
     description: "Frontend",
   },
 
   {
-    title: "Pulse",
+    title: "Zen",
 
-    src: "pic3.jpg",
+    src: "zen.png",
 
     color: "#EFE8D3",
     description: "Frontend",
@@ -35,7 +35,7 @@ const labs = [
   {
     title: "New Reality",
 
-    src: "pic1.jpg",
+    src: "new_reality.png",
 
     color: "#706D63",
     description: "Frontend",
@@ -43,7 +43,7 @@ const labs = [
   {
     title: "ELEM3NT",
 
-    src: "pic1.jpg",
+    src: "elem3nt.png",
 
     color: "#000000",
     description: "Frontend",
@@ -52,7 +52,7 @@ const labs = [
   {
     title: "T27",
 
-    src: "pic2.jpg",
+    src: "t27.png",
 
     color: "#8C8C8C",
     description: "Frontend",

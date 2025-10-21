@@ -29,7 +29,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${neueMontreal.className} antialiased bg-[#e5e6e0] mx-auto max-w-7xl`}>
         {/* <Menu /> */}
-        <Navbar />
         {children}
       </body>
     </html>

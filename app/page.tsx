@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import Hero from "@/components/hero/hero";
 import Footer from "@/components/footer";
 import LabPage from "./lab/page";
+import About from "@/components/about/about";
 
 export default function Home() {
 
@@ -23,8 +24,9 @@ export default function Home() {
     <>
       <Hero />
       {/* <HeroNew /> */}
-      <Footer />
+      <About />
       <LabPage />
+      <Footer />
     </>
   );
 }

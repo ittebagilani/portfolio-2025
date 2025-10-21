@@ -13,7 +13,7 @@ export default function Lab({ index, title, description, setModal }: IndexProps)
     <div 
       onMouseEnter={() => { setModal({ active: true, index }) }} 
       onMouseLeave={() => { setModal({ active: false, index }) }} 
-      className="lab flex flex-col md:flex-row max-w-5xl items-center mx-auto"
+      className="lab flex flex-col md:flex-row max-w-6xl items-center mx-auto"
     >
       <h2>{title}</h2>
       <p>{description}</p>

@@ -23,6 +23,7 @@ const scaleAnimation = {
 interface Project {
   src: string;
   color: string;
+  url: string;
 }
 
 interface Modal {
@@ -126,6 +127,11 @@ export default function Modal({ modal, projects }: ModalProps) {
         initial="initial"
         animate={active ? "enter" : "closed"}
         ref={cursor}
+        onClick={() => {
+          const project = projects[index];
+          if (project?.url)
+            window.open(project.url, "_blank", "noopener,noreferrer");
+        }}
       ></motion.div>
       <motion.div
         className={styles.cursorLabel}
@@ -133,6 +139,18 @@ export default function Modal({ modal, projects }: ModalProps) {
         initial="initial"
         animate={active ? "enter" : "closed"}
         ref={cursorLabel}
+        style={{
+          pointerEvents: active ? "auto" : "none", // only clickable when visible
+          cursor: active ? "pointer" : "default",
+          transformOrigin: "center center", // keeps scaling consistent
+        }}
+        whileHover={{ scale: 1 }} // prevents extra shrink/grow
+        whileTap={{ scale: 1 }} // prevents shrinking on click
+        onClick={() => {
+          const project = projects[index];
+          if (project?.url)
+            window.open(project.url, "_blank", "noopener,noreferrer");
+        }}
       >
         View
       </motion.div>

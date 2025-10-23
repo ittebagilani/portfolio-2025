@@ -29,7 +29,7 @@
     height: auto;
 }
 
-.cursor, .cursorLabel {
+.cursor {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -42,9 +42,22 @@
     justify-content: center;
     font-size: 14px;
     font-weight: 300;
-    pointer-events: none;
+    pointer-events: none; /* still none for this */
 }
 
 .cursorLabel {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     background-color: transparent;
+    color: white;
+    position: absolute;
+    z-index: 3; /* slightly higher so it’s clickable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer; /* new */
+    pointer-events: auto; /* ✅ allow clicking */
 }

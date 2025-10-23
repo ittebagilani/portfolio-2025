@@ -12,6 +12,7 @@ const labs = [
 
     color: "#000000",
     description: "Fullstack",
+    url: "https://tempestai.vercel.app/"
   },
 
   {
@@ -21,6 +22,7 @@ const labs = [
 
     color: "#8C8C8C",
     description: "Frontend",
+    url: "https://saas-landing-page-v2-git-main-itteba-gs-projects.vercel.app/"
   },
 
   {
@@ -30,6 +32,7 @@ const labs = [
 
     color: "#EFE8D3",
     description: "Frontend",
+    url: "https://saas-landing-page-v1-git-main-itteba-gs-projects.vercel.app/"
   },
 
   {
@@ -39,6 +42,7 @@ const labs = [
 
     color: "#706D63",
     description: "Frontend",
+    url: "https://project-07-ten.vercel.app/"
   },
   {
     title: "ELEM3NT",
@@ -47,6 +51,7 @@ const labs = [
 
     color: "#000000",
     description: "Frontend",
+    url: "https://project-06-rosy.vercel.app/",
   },
 
   {
@@ -56,6 +61,7 @@ const labs = [
 
     color: "#8C8C8C",
     description: "Frontend",
+    url: "https://project-05-beta.vercel.app/"
   },
 ];
 

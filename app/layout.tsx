@@ -5,14 +5,13 @@ import localFont from "next/font/local";
 const neueMontreal = localFont({
   src: [
     {
-      path: "./../public/fonts/NeueMontreal-Regular.otf", // <-- notice the leading /
+      path: "./../public/fonts/NeueMontreal-Regular.otf",
       weight: "400",
       style: "normal",
     },
   ],
   variable: "--font-neue-montreal",
 });
-
 
 export const metadata: Metadata = {
   title: "Itteba Gilani",
@@ -26,9 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${neueMontreal.className} antialiased bg-[#e5e6e0] mx-auto max-w-7xl`}>
-        {/* <Menu /> */}
-        {children}
+      <body className={`${neueMontreal.className} antialiased bg-[#e5e6e0]`}>
+        <div className="mx-auto max-w-7xl">
+          {children}
+        </div>
       </body>
     </html>
   );

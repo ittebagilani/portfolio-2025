@@ -5,9 +5,9 @@ import Hero from "@/components/hero/hero";
 import Footer from "@/components/footer";
 import LabPage from "./lab/page";
 import About from "@/components/about/about";
+import FooterStickyWrapper from "@/components/footer/sticky-footer-wrapper";
 
 export default function Home() {
-
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -27,6 +27,8 @@ export default function Home() {
       <About />
       <LabPage />
       <Footer />
+      {/* <FooterStickyWrapper /> */}
+
     </>
   );
 }

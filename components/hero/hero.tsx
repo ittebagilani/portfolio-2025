@@ -89,7 +89,7 @@ const Hero = () => {
     <motion.div
       ref={container}
       style={{ opacity }}
-      className={`flex flex-col items-start md:items-center justify-center px-6 sm:px-10 lg:px-20 py-8 sm:py-12 md:py-16 ${styles.container}`}
+      className={`flex flex-col items-start md:items-center justify-center px-6 sm:px-10 lg:px-20 py-8 sm:py-12 md:py-16 min-h-screen ${styles.container}`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"

@@ -40,10 +40,17 @@ export default function Footer() {
             <a
               href="https://www.linkedin.com/in/itteba-gilani/"
               className="hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Linkedin
             </a>
-            <a href="https://x.com/iittebagilanii" className="hover:underline">
+            <a
+              href="https://x.com/iittebagilanii"
+              className="hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Twitter
             </a>
           </div>

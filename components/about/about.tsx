@@ -26,10 +26,10 @@ export default function About() {
           </motion.div>
 
           <motion.div className="lg:absolute lg:right-20">
-            {/* <p className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight text-left">
+            <p className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight text-left">
               I make websites feel like games.
 
-            </p> */}
+            </p>
 
             {/* <Image src={'/images/pfp.jpg'} width={500} height={500} alt="pfp" className="rounded-xl shadow-2xl"/> */}
 

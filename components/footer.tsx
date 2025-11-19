@@ -1,76 +1,47 @@
-import { MoveRight } from "lucide-react";
-import React from "react";
+// components/Footer.tsx
 
 export default function Footer() {
   return (
-    <div className="py-16 px-8 md:px-12 w-full flex flex-col md:flex-row justify-between items-center md:items-end gap-16">
-      <GetInTouch />
-      <Form />
-    </div>
+    <footer className="w-full border-t border-neutral-800 text-black py-6 lowercase mb-10">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+
+        {/* Left Section */}
+        <div className="flex flex-col">
+          <a href="#" className="text-lg font-medium hover:underline">
+            itteba gilani
+          </a>
+          <p className="text-sm">Portfolio 2025 v2</p>
+        </div>
+
+        {/* Middle Section */}
+        <div className="flex flex-col text-sm">
+          <p>software developer</p>
+          <p>Visual Designer</p>
+          <p className="mt-2">All rights reserved.</p>
+        </div>
+
+        {/* Right Section */}
+        <div className="flex flex-col text-sm">
+          <p className="text-neutral-400">Let&apos;s chat</p>
+          <a
+            href="mailto:subject=Hello"
+            className="text-lg font-medium hover:underline text-emerald-800"
+          >
+            say hi
+          </a>
+
+          <p className="mt-3 font-medium">Resume</p>
+          <div className="flex gap-3">
+            <a href="https://www.linkedin.com/in/itteba-gilani/" className="hover:underline">
+              Linkedin
+            </a>
+            <a href="https://x.com/iittebagilanii" className="hover:underline">
+              Twitter
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
   );
 }
-
-const GetInTouch = () => {
-  return (
-    <div className="flex flex-col items-center md:items-start text-center md:text-left">
-      <h1 className="text-[14vw] md:text-[10vw] leading-[0.8] font-semibold">
-        Get in
-        <br />
-        <span className="inline-flex items-center gap-4">
-          Touch
-          <MoveRight className="hidden md:inline w-[0.6em] h-[0.6em] pt-2" />
-        </span>
-      </h1>
-      <p className="mt-4 text-sm text-gray-400">© folio '25</p>
-    </div>
-  );
-};
-
-const Form = () => {
-  return (
-    <form className="w-full max-w-md flex flex-col gap-6 text-lg">
-      <div className="flex flex-col">
-        <label htmlFor="name" className="text-xl text-gray-800 mb-2">
-          Name
-        </label>
-        <input
-          id="name"
-          type="text"
-          placeholder="John Doe"
-          className="bg-transparent border-b border-gray-600 focus:border-white outline-none text-black py-2 transition-colors"
-        />
-      </div>
-
-      <div className="flex flex-col">
-        <label htmlFor="email" className="text-xl text-gray-800 mb-2">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          placeholder="example@email.com"
-          className="bg-transparent border-b border-gray-600 focus:border-white outline-none text-black py-2 transition-colors"
-        />
-      </div>
-
-      <div className="flex flex-col">
-        <label htmlFor="message" className="text-xl text-gray-800 mb-2">
-          Message
-        </label>
-        <textarea
-          id="message"
-          placeholder="Write your message..."
-          rows={3}
-          className="bg-transparent border-b border-gray-600 focus:border-white outline-none text-black py-2 transition-colors resize-none"
-        ></textarea>
-      </div>
-
-      <button
-        type="submit"
-        className="self-start mt-4 border border-gray-600 text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition-colors"
-      >
-        Send
-      </button>
-    </form>
-  );
-};

@@ -1,87 +1,68 @@
 main {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    gap: 3rem;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    padding: 0 20px;
   }
   
   .labs-container {
     width: 100%;
-    max-width: 1200px; /* Optional: set max width */
+    max-width: 1200px;
     overflow: hidden;
   }
-
-.lab {
-
+  
+  .lab {
     display: flex;
-
-    width: 100%;
-
     justify-content: space-between;
-
     align-items: center;
-
-    padding: 50px 100px 50px 100px;
-
+    padding: 40px 60px;
     border-top: 1px solid rgb(201, 201, 201);
-
     cursor: pointer;
-
-    transition: all 0.2s;
-
-}
-
-.lab:last-of-type{
-
+    transition: all 0.2s ease;
+    width: 100%;
+    white-space: nowrap; /* ⬅ keeps text on one line */
+  }
+  
+  .lab:last-of-type {
     border-bottom: 1px solid rgb(201, 201, 201);
-
-}
-
-
-
-.lab:hover{
-
-    opacity: 0.5;
-
-}
-
-
-
-.lab:hover h2{
-
-    transform: translateX(-10px);
-
-}
-
-
-
-.lab:hover p{
-
-    transform: translateX(10px);
-
-}
-
-
-
-.lab h2{
-
-    font-size: 60px;
-
-    margin: 0px;
-
+  }
+  
+  .lab:hover {
+    opacity: 0.6;
+  }
+  
+  .lab:hover h2 {
+    transform: translateX(-6px);
+  }
+  
+  .lab:hover p {
+    transform: translateX(6px);
+  }
+  
+  .lab h2 {
+    font-size: clamp(1.5rem, 6vw, 3rem); /* responsive, always smaller than header */
     font-weight: 400;
-
+    margin: 0;
     transition: all 0.4s;
-
-}
-
-
-
-.lab p{
-
+  }
+  
+  .lab p {
+    font-size: clamp(1rem, 3vw, 0.9rem);
+    font-weight: 200;
     transition: all 0.4s;
-
-    font-weight: 300;
-
-}
+  }
+  
+  /* 📱 Mobile */
+  @media (max-width: 768px) {
+    .lab {
+      padding: 20px 20px;
+    }
+  
+    .lab:hover h2,
+    .lab:hover p {
+      transform: none; /* hover animations removed for mobile */
+    }
+  }
+  

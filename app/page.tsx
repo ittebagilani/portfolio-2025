@@ -3,9 +3,8 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Hero from "@/components/hero/hero";
 import Footer from "@/components/footer";
-import LabPage from "./lab/page";
 import About from "@/components/about/about";
-import FooterStickyWrapper from "@/components/footer/sticky-footer-wrapper";
+import Work from "@/components/work/work";
 
 export default function Home() {
   useEffect(() => {
@@ -23,12 +22,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <HeroNew /> */}
-      <About />
-      <LabPage />
+      {/* <About /> */}
+      <Work />
       <Footer />
-      {/* <FooterStickyWrapper /> */}
-
     </>
   );
 }

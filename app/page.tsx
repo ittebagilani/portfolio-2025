@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Hero from "@/components/hero/hero";
 import Footer from "@/components/footer";
-import About from "@/components/about/about";
+// import About from "@/components/about/about";
 import Work from "@/components/work/work";
 
 export default function Home() {

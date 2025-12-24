@@ -22,7 +22,7 @@ const Hero = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0 },
   };
 
   const [windowsWidth, setWindowsWidth] = useState(0);
@@ -75,13 +75,14 @@ const Hero = () => {
       </div>
 
       <div className={styles.body}>
-        <motion.div className="mb-4 md:mb-6" variants={itemVariants} style={{ y: translateY }}>
-          <h1 className="text-6xl md:text-8xl xl:text-[160px] leading-[0.8] text-center">Itteba Gilani</h1>
+        <motion.div className="mb-4 md:mb-6" variants={itemVariants} transition={{ duration: 0.6, ease: "easeOut" }} style={{ y: translateY }}>
+          <h1 className="text-6xl md:text-8xl xl:text-[190px] leading-[0.8] text-center">Itteba Gilani</h1>
         </motion.div>
 
         <motion.div
           className="mb-2 md:absolute md:-top-16"
           variants={itemVariants}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           style={{ y: translateY }}
         >
           <h1 className="text-lg md:text-xl text-center">open to work</h1>
@@ -90,9 +91,10 @@ const Hero = () => {
         <motion.div
           className="mb-2 md:absolute md:right-0 md:top-40"
           variants={itemVariants}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           style={{ y: translateY }}
         >
-          <h1 className="text-lg md:text-xl text-center">toronto, on</h1>
+          <h1 className="text-lg md:text-xl text-center mt-10">toronto, on</h1>
         </motion.div>
       </div>
     </motion.div>

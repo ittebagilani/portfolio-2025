@@ -12,13 +12,11 @@ const scaleAnimation = {
     scale: 1,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
   },
   closed: {
     scale: 0,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
   },
 };
 
@@ -82,6 +80,7 @@ export default function Modal({ modal, projects }: any) {
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
+        transition={active ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] } : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
       >
         <div
           style={{ top: index * -100 + "%" }}
@@ -105,24 +104,26 @@ export default function Modal({ modal, projects }: any) {
       </motion.div>
 
       {/* CURSOR DOT */}
-      <motion.div
+      {/* <motion.div
         ref={cursor}
         className={styles.cursor}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-      />
+        transition={active ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] } : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
+      /> */}
 
       {/* CURSOR LABEL */}
-      <motion.div
+      {/* <motion.div
         ref={cursorLabel}
         className={styles.cursorLabel}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
+        transition={active ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] } : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
       >
         View
-      </motion.div>
+      </motion.div> */}
     </>
   );
 }

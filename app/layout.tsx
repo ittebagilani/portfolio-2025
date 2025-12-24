@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import CustomCursor from "@/components/CustomCursor";
 
 const neueMontreal = localFont({
   src: [
@@ -29,6 +30,7 @@ export default function RootLayout({
         <div className="mx-auto max-w-7xl">
           {children}
         </div>
+        <CustomCursor />
       </body>
     </html>
   );

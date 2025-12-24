@@ -1,7 +1,7 @@
-.modalContainer {
+.modalContainer{
     height: 350px;
     width: 400px;
-    position: absolute;
+    position: fixed;
     background-color: white;
     overflow: hidden;
     pointer-events: none;
@@ -10,14 +10,14 @@
     justify-content: center;
 }
 
-.modalSlider {
+.modalSlider{
     height: 100%;
     width: 100%;
     position: absolute;
     transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.modal {
+.modal{
     height: 100%;
     width: 100%;
     display: flex;
@@ -25,15 +25,15 @@
     justify-content: center;
 }
 
-.modal img {
+.modal img{
     height: auto;
 }
 
-.cursor {
+.cursor, .cursorLabel{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #65645b;
+    background-color: #455CE9;
     color: white;
     position: absolute;
     z-index: 2;
@@ -42,22 +42,9 @@
     justify-content: center;
     font-size: 14px;
     font-weight: 300;
-    pointer-events: none; /* still none for this */
+    pointer-events: none;
 }
 
-.cursorLabel {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+.cursorLabel{
     background-color: transparent;
-    color: white;
-    position: absolute;
-    z-index: 3; /* slightly higher so it’s clickable */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 300;
-    cursor: pointer; /* new */
-    pointer-events: auto; /* ✅ allow clicking */
 }

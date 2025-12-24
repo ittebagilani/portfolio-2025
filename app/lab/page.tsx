@@ -81,6 +81,7 @@ const LabPage = () => {
               setModal={setModal}
               key={index}
               description={lab.description}
+              url={lab.url}
             />
           );
         })}

@@ -1,4 +1,6 @@
-import { useEffect, useRef } from "react";
+"use client";
+
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./style.module.css";
@@ -10,33 +12,17 @@ const scaleAnimation = {
     scale: 1,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: "easeInOut" as const },
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
   },
   closed: {
     scale: 0,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: "easeInOut" as const },
+    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
   },
 };
 
-interface Project {
-  src: string;
-  color: string;
-  url: string;
-}
-
-interface Modal {
-  active: boolean;
-  index: number;
-}
-
-interface ModalProps {
-  modal: Modal;
-  projects: Project[];
-}
-
-export default function Modal({ modal, projects }: ModalProps) {
+export default function Modal({ modal, projects }: any) {
   const { active, index } = modal;
 
   const modalContainer = useRef<HTMLDivElement>(null);
@@ -44,113 +30,96 @@ export default function Modal({ modal, projects }: ModalProps) {
   const cursorLabel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // move container
-    let xMoveContainer = gsap.quickTo(modalContainer.current, "left", {
+    if (!modalContainer.current || !cursor.current || !cursorLabel.current)
+      return;
+
+    const xContainer = gsap.quickTo(modalContainer.current, "left", {
       duration: 0.8,
-      ease: "power3",
+      ease: "power3.out",
     });
-    let yMoveContainer = gsap.quickTo(modalContainer.current, "top", {
+    const yContainer = gsap.quickTo(modalContainer.current, "top", {
       duration: 0.8,
-      ease: "power3",
+      ease: "power3.out",
     });
 
-    // move cursor
-    let xMoveCursor = gsap.quickTo(cursor.current, "left", {
+    const xCursor = gsap.quickTo(cursor.current, "left", {
       duration: 0.5,
-      ease: "power3",
+      ease: "power3.out",
     });
-    let yMoveCursor = gsap.quickTo(cursor.current, "top", {
+    const yCursor = gsap.quickTo(cursor.current, "top", {
       duration: 0.5,
-      ease: "power3",
+      ease: "power3.out",
     });
 
-    // move cursor label
-    let xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {
+    const xLabel = gsap.quickTo(cursorLabel.current, "left", {
       duration: 0.45,
-      ease: "power3",
+      ease: "power3.out",
     });
-    let yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {
+    const yLabel = gsap.quickTo(cursorLabel.current, "top", {
       duration: 0.45,
-      ease: "power3",
+      ease: "power3.out",
     });
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const { pageX, pageY } = e;
-
-      xMoveContainer(pageX);
-      yMoveContainer(pageY);
-      xMoveCursor(pageX);
-      yMoveCursor(pageY);
-      xMoveCursorLabel(pageX);
-      yMoveCursorLabel(pageY);
+    const move = (e: MouseEvent) => {
+      xContainer(e.clientX);
+      yContainer(e.clientY);
+      xCursor(e.clientX);
+      yCursor(e.clientY);
+      xLabel(e.clientX);
+      yLabel(e.clientY);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
   }, []);
 
   return (
     <>
+      {/* IMAGE MODAL */}
       <motion.div
+        ref={modalContainer}
+        className={styles.modalContainer}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-        className={styles.modalContainer}
-        ref={modalContainer}
       >
-        <div style={{ top: index * -100 + "%" }} className={styles.modalSlider}>
-          {projects.map((project: Project, index: number) => {
-            const { src, color } = project;
-            return (
-              <div
-                className={styles.modal}
-                style={{ backgroundColor: color }}
-                key={`modal_${index}`}
-              >
-                <Image
-                  src={`/images/${src}`}
-                  width={300}
-                  height={0}
-                  alt="image"
-                />
-              </div>
-            );
-          })}
+        <div
+          style={{ top: index * -100 + "%" }}
+          className={styles.modalSlider}
+        >
+          {projects.map((project: any, i: number) => (
+            <div
+              key={i}
+              className={styles.modal}
+              style={{ backgroundColor: project.color }}
+            >
+              <Image
+                src={`/images/${project.src}`}
+                width={300}
+                height={0}
+                alt=""
+              />
+            </div>
+          ))}
         </div>
       </motion.div>
+
+      {/* CURSOR DOT */}
       <motion.div
+        ref={cursor}
         className={styles.cursor}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-        ref={cursor}
-        onClick={() => {
-          const project = projects[index];
-          if (project?.url)
-            window.open(project.url, "_blank", "noopener,noreferrer");
-        }}
-      ></motion.div>
+      />
+
+      {/* CURSOR LABEL */}
       <motion.div
+        ref={cursorLabel}
         className={styles.cursorLabel}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-        ref={cursorLabel}
-        style={{
-          pointerEvents: active ? "auto" : "none", // only clickable when visible
-          cursor: active ? "pointer" : "default",
-          transformOrigin: "center center", // keeps scaling consistent
-        }}
-        whileHover={{ scale: 1 }} // prevents extra shrink/grow
-        whileTap={{ scale: 1 }} // prevents shrinking on click
-        onClick={() => {
-          const project = projects[index];
-          if (project?.url)
-            window.open(project.url, "_blank", "noopener,noreferrer");
-        }}
       >
         View
       </motion.div>

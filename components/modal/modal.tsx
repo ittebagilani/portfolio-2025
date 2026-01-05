@@ -28,47 +28,43 @@ export default function Modal({ modal, projects }: any) {
   const cursorLabel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!modalContainer.current || !cursor.current || !cursorLabel.current)
-      return;
-
-    const xContainer = gsap.quickTo(modalContainer.current, "left", {
+    //Move Container
+    let xMoveContainer = gsap.quickTo(modalContainer.current, "left", {
       duration: 0.8,
-      ease: "power3.out",
+      ease: "power3",
     });
-    const yContainer = gsap.quickTo(modalContainer.current, "top", {
+    let yMoveContainer = gsap.quickTo(modalContainer.current, "top", {
       duration: 0.8,
-      ease: "power3.out",
+      ease: "power3",
     });
-
-    const xCursor = gsap.quickTo(cursor.current, "left", {
+    //Move cursor
+    let xMoveCursor = gsap.quickTo(cursor.current, "left", {
       duration: 0.5,
-      ease: "power3.out",
+      ease: "power3",
     });
-    const yCursor = gsap.quickTo(cursor.current, "top", {
+    let yMoveCursor = gsap.quickTo(cursor.current, "top", {
       duration: 0.5,
-      ease: "power3.out",
+      ease: "power3",
     });
-
-    const xLabel = gsap.quickTo(cursorLabel.current, "left", {
+    //Move cursor label
+    let xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {
       duration: 0.45,
-      ease: "power3.out",
+      ease: "power3",
     });
-    const yLabel = gsap.quickTo(cursorLabel.current, "top", {
+    let yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {
       duration: 0.45,
-      ease: "power3.out",
+      ease: "power3",
     });
 
-    const move = (e: MouseEvent) => {
-      xContainer(e.clientX);
-      yContainer(e.clientY);
-      xCursor(e.clientX);
-      yCursor(e.clientY);
-      xLabel(e.clientX);
-      yLabel(e.clientY);
-    };
-
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    window.addEventListener("mousemove", (e) => {
+      const { pageX, pageY } = e;
+      xMoveContainer(pageX);
+      yMoveContainer(pageY);
+      xMoveCursor(pageX);
+      yMoveCursor(pageY);
+      xMoveCursorLabel(pageX);
+      yMoveCursorLabel(pageY);
+    });
   }, []);
 
   return (
@@ -80,7 +76,11 @@ export default function Modal({ modal, projects }: any) {
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-        transition={active ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] } : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
+        transition={
+          active
+            ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] }
+            : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }
+        }
       >
         <div
           style={{ top: index * -100 + "%" }}
@@ -96,7 +96,7 @@ export default function Modal({ modal, projects }: any) {
                 src={`/images/${project.src}`}
                 width={300}
                 height={0}
-                alt=""
+                alt="image"
               />
             </div>
           ))}
@@ -104,26 +104,34 @@ export default function Modal({ modal, projects }: any) {
       </motion.div>
 
       {/* CURSOR DOT */}
-      {/* <motion.div
+      <motion.div
         ref={cursor}
         className={styles.cursor}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-        transition={active ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] } : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
-      /> */}
+        transition={
+          active
+            ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] }
+            : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }
+        }
+      />
 
       {/* CURSOR LABEL */}
-      {/* <motion.div
+      <motion.div
         ref={cursorLabel}
         className={styles.cursorLabel}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-        transition={active ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] } : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
+        transition={
+          active
+            ? { duration: 0.4, ease: [0.76, 0, 0.24, 1] }
+            : { duration: 0.4, ease: [0.32, 0, 0.67, 0] }
+        }
       >
         View
-      </motion.div> */}
+      </motion.div>
     </>
   );
 }

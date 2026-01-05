@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import CustomCursor from "@/components/CustomCursor";
+import { Analytics } from "@vercel/analytics/next"
+
 
 const neueMontreal = localFont({
   src: [
@@ -29,6 +31,7 @@ export default function RootLayout({
       <body className={`${neueMontreal.className} antialiased bg-[#e5e6e0]`}>
         <div className="mx-auto max-w-7xl">
           {children}
+          <Analytics />
         </div>
         <CustomCursor />
       </body>

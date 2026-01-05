@@ -20,7 +20,7 @@ export default function Lab({ index, title, description, url, setModal }: IndexP
       onMouseEnter={() => { setModal({ active: true, index }) }}
       onMouseLeave={() => { setModal({ active: false, index }) }}
       onClick={handleClick}
-      className="lab flex flex-col md:flex-row max-w-6xl items-center mx-auto"
+      className="lab flex flex-col md:flex-row max-w-4xl items-center mx-auto"
     >
       <h2>{title}</h2>
       <p>{description}</p>

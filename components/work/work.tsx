@@ -1,6 +1,7 @@
 "use client";
 import Lab from "@/components/lab/lab";
 import Modal from "@/components/modal/modal";
+import Link from "next/link";
 import { useState } from "react";
 
 const labs = [
@@ -21,7 +22,7 @@ const Work = () => {
         Featured Work
       </h1>
 
-      <div className="labs-container">
+      <div className="labs-container max-w-4xl mx-auto">
         {labs.map((lab, index) => (
           <Lab
             key={index}
@@ -32,6 +33,15 @@ const Work = () => {
             url={lab.url}
           />
         ))}
+      </div>
+
+      <div className="flex justify-center mt-12">
+        <Link
+          href="/work"
+          className="px-8 py-2 mb-20 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-lg font-light"
+        >
+          View All Work
+        </Link>
       </div>
 
       <Modal modal={modal} projects={labs} />

@@ -8,14 +8,39 @@ type ProjectType = "fullstack" | "frontend" | "mobile";
 
 interface Project {
   title: string;
-  src: string;
-  color: string;
+  src?: string;
+  color?: string;
   type: ProjectType;
   url: string;
   description?: string;
 }
 
 const allProjects: Project[] = [
+  {
+    title: "DSA Quest",
+    // src: "dsaquest.png",
+    // color: "#000",
+    type: "fullstack",
+    url: "https://dsaquest.com/",
+    description: "A gamified way to learn DSA.",
+  },
+  {
+    title: "Niyyah",
+    // src: "dsaquest.png",
+    // color: "#000",
+    type: "mobile",
+    url: "https://v0-niyyah-landing-page.vercel.app",
+    description: "Guilt-free daily prayer tracker.",
+  },
+  {
+    title: "Sukoon",
+    // src: "dsaquest.png",
+    // color: "#000",
+    type: "mobile",
+    url: "https://dsaquest.com/",
+    description: "A simple daily journal app that comforts your soul with Islam.",
+  },
+  
   {
     title: "Tempest AI",
     src: "tempest.png",
@@ -73,6 +98,7 @@ export default function WorkPage() {
     useState<Project[]>(allProjects);
 
   useEffect(() => {
+    
     const lenis = new Lenis();
 
     function raf(time: number) {
@@ -81,6 +107,7 @@ export default function WorkPage() {
     }
 
     requestAnimationFrame(raf);
+    
   }, []);
 
   useEffect(() => {
@@ -121,7 +148,7 @@ export default function WorkPage() {
           <button
             key={button.value}
             onClick={() => setSelectedFilter(button.value)}
-            className={`px-6 py-2 rounded-full font-light transition-all ${
+            className={`px-6 py-2 rounded-full font-light transition-all cursor-pointer ${
               selectedFilter === button.value
                 ? "bg-black text-white"
                 : "border border-black hover:bg-gray-100"

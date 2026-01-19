@@ -29,10 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${neueMontreal.className} antialiased bg-[#e5e6e0]`}>
-        <div className="mx-auto max-w-7xl">
-          {children}
-          <Analytics />
-        </div>
+        {children}
+        <Analytics />
         <CustomCursor />
       </body>
     </html>

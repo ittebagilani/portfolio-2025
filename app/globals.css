@@ -253,6 +253,13 @@ h1 {
   z-index: 2;
 }
 
+html {
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+
+}
+
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none !important;
